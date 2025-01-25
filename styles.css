@@ -95,6 +95,17 @@ nav a:active {
     color: #f05454;
 }
 
+.news-content {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+.contact-info {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #f05454;
+}
+
 .tour-dates {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
