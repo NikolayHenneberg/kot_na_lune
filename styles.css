@@ -120,6 +120,25 @@ footer {
     background-color: #1f1f1f;
 }
 
+.privacy-policy-link {
+    color: #f05454;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 5px;
+}
+
+.privacy-policy-link:hover {
+    color: #f05454;
+    text-decoration: underline;
+}
+.privacy-policy-link:active {
+    color: #f05454;
+    text-decoration: none;
+}
+
 html {
     scroll-behavior: smooth;
 }
+
+
