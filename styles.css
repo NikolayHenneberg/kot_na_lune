@@ -152,4 +152,18 @@ html {
     scroll-behavior: smooth;
 }
 
+.language-switch {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.language-switch img {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.language-switch img:hover {
+    transform: scale(1.1);
+}
 
