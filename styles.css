@@ -199,3 +199,23 @@ html {
     transform: scale(1.1);
 }
 
+.hero {
+    position: relative;
+    z-index: 0;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* затемнение 60% */
+    z-index: 1;
+}
+
+.hero-text, .social-icons {
+    position: relative;
+    z-index: 2; /* поверх затемнения */
+}
