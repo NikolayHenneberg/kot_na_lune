@@ -186,17 +186,31 @@ html {
 
 .language-switch {
     display: flex;
-    gap: 10px;
     align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    letter-spacing: 1px;
 }
 
-.language-switch img {
-    cursor: pointer;
-    transition: transform 0.2s;
+.language-switch .lang {
+    text-decoration: none;
+    color: #cccccc;
+    font-weight: 500;
+    transition: color 0.2s ease;
 }
 
-.language-switch img:hover {
-    transform: scale(1.1);
+.language-switch .lang:hover {
+    color: #f05454; /* твой акцент */
+}
+
+.language-switch .lang.active {
+    color: #f05454;
+    font-weight: 700;
+    cursor: default;
+}
+
+.language-switch .divider {
+    color: #555;
 }
 
 .hero {
