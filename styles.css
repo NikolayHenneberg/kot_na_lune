@@ -324,3 +324,39 @@ footer { text-align: center; background: #101010; border-top: 1px solid var(--ro
         to { opacity: 1; transform: none; }
     }
 }
+
+/* Display typography from STAGE 02 — current layout stays unchanged. */
+.home-page .hero-tagline {
+    font-size: clamp(32px, 4.6vw, 66px);
+    font-weight: 800;
+    line-height: .99;
+    letter-spacing: -.065em;
+    color: #f2eeee;
+}
+.home-page .hero-tagline .display-accent { color: var(--rock-accent); }
+.home-page .section h2 { font-weight: 800; letter-spacing: -.055em; }
+.concert-info .concert-date {
+    margin: 9px 0 0;
+    font-size: clamp(64px, 8vw, 112px);
+    font-weight: 800;
+    line-height: .88;
+    letter-spacing: -.09em;
+    color: #fff;
+    font-variant-numeric: lining-nums;
+}
+.concert-date time { display: inline-block; max-width: 100%; }
+.concert-date .date-main { display: block; white-space: nowrap; }
+.concert-date .date-accent { color: var(--rock-accent); }
+.concert-date .date-year {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: .17em;
+    color: var(--rock-accent);
+}
+@media (max-width: 560px) {
+    .home-page .hero-tagline { font-size: clamp(28px, 8.1vw, 45px); }
+    .concert-info .concert-date { font-size: clamp(56px, 15vw, 84px); }
+}
