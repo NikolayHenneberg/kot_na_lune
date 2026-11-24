@@ -10,7 +10,7 @@
     <meta property="og:title" content="Offizielle Website der Rockband „Kot Na Lune“">
     <meta property="og:description"
           content="KOT NA LUNE — hört unsere Musik, besucht unsere Konzerte und bleibt mit uns in Verbindung!">
-    <meta property="og:image" content="https://www.kotnalune.band/og-image.jpg">
+    <meta property="og:image" content="https://www.kotnalune.band/og-image.JPG">
     <meta property="og:url" content="https://kotnalune.band">
     <meta property="og:type" content="website">
 
@@ -21,26 +21,14 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Permanent+Marker&display=swap"
           rel="stylesheet">
-    <style>
-        @media (max-width: 1150px) {
-            header { flex-wrap: wrap; gap: 14px; }
-            header nav { display: flex; flex: 1 1 100%; order: 3; flex-wrap: wrap; justify-content: center; gap: 12px 18px; }
-            header nav a { margin: 0; }
-        }
-    </style>
 </head>
 
-<body>
+<body class="home-page">
 
-<header>
+<header class="site-header">
 
-    <div class="logo">
-        <a href="index.html">
-            <img src="logo.svg" alt="Logo der Band Kot Na Lune">
-        </a>
-    </div>
-
-    <nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="menu-symbol" aria-hidden="true"></span>Menü</button>
+    <nav id="main-nav" aria-label="Hauptnavigation">
         <a href="#about" aria-label="Über die Band">Über die Band</a>
         <a href="#concert" aria-label="Konzerte">Konzerte</a>
         <a href="songtexte.html">Songtexte</a>
@@ -52,41 +40,54 @@
     <div class="language-switch">
         <a href="index_ru.html" class="lang">RU</a>
         <span class="divider">/</span>
-        <a href="index.html" class="lang active">DE</a>
+        <a href="index.html" class="lang active" aria-current="page">DE</a>
     </div>
 
 </header>
+<script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const siteHeader = document.querySelector('.site-header');
+    siteHeader.classList.add('menu-ready');
+    menuButton.addEventListener('click', () => {
+        const open = menuButton.getAttribute('aria-expanded') !== 'true';
+        menuButton.setAttribute('aria-expanded', String(open));
+        siteHeader.classList.toggle('menu-open', open);
+    });
+    document.querySelectorAll('#main-nav a').forEach(link => link.addEventListener('click', () => {
+        menuButton.setAttribute('aria-expanded', 'false');
+        siteHeader.classList.remove('menu-open');
+    }));
+</script>
 
 
 <!-- =========================
      HERO
      ========================= -->
 
-<div class="hero">
-
-    <div>
-
-        <div class="hero-text">
-
-            <h1>
-                Willkommen auf der offiziellen Website der Band „Kot Na Lune“
-            </h1>
-
-            <p>
-                Rock von der anderen Seite des Mondes.
-            </p>
-
+<main id="main-content">
+<section class="hero" aria-label="Kot Na Lune">
+    <div class="hero-shell">
+        <div class="hero-topline"><span class="hero-location"><span class="signal-dot" aria-hidden="true"></span>DRESDEN · ROCKBAND</span><span class="hero-edition">KOTNALUNE.BAND</span></div>
+        <div class="hero-brand">
+            <h1 class="sr-only">Кот На Луне · Kot Na Lune</h1>
+            <img src="hero-logo.png" alt="" width="2048" height="1250" fetchpriority="high">
         </div>
-
-
-        <div class="social-icons">
+        <div class="hero-bottom">
+            <p class="hero-tagline">Rock von der anderen<br>Seite des Mondes.</p>
+            <div class="hero-actions">
+                <a class="hero-button hero-button-primary" href="#concert">Konzerte<span aria-hidden="true">↗</span></a>
+                <a class="hero-button" href="#music">Musik hören<span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+        <div class="hero-footerline">
+            <div class="social-icons">
 
             <a href="https://www.instagram.com/kater_auf_dem_mond"
                target="_blank"
                rel="noopener noreferrer">
 
                 <img src="instagram.svg"
-                     alt="Instagram"
+                     alt=""
                      width="50"
                      height="50">
 
@@ -100,7 +101,7 @@
                rel="noopener noreferrer">
 
                 <img src="youtube.svg"
-                     alt="YouTube"
+                     alt=""
                      width="50"
                      height="50">
 
@@ -114,7 +115,7 @@
                rel="noopener noreferrer">
 
                 <img src="tiktok.svg"
-                     alt="TikTok"
+                     alt=""
                      width="50"
                      height="50">
 
@@ -123,15 +124,10 @@
             </a>
 
         </div>
-
+            <a class="hero-lyrics" href="songtexte.html">Songtexte<span aria-hidden="true">↗</span></a>
+        </div>
     </div>
-
-</div>
-
-
-<!-- =========================
-     ÜBER DIE BAND
-     ========================= -->
+</section>
 
 <div id="about" class="section">
 
@@ -200,7 +196,7 @@
 
             <img src="concert-2026-11-26.jpg"
                  alt="Kot Na Lune — Paradies Nacht am 26. November 2026 in Dresden"
-                 class="concert-poster">
+                 class="concert-poster" loading="lazy" decoding="async">
 
         </a>
 
@@ -358,7 +354,7 @@
     <h2>Kontakt</h2>
 
     <p>
-        E-Mail: contact@kotnalune.band
+        E-Mail: <a href="mailto:contact@kotnalune.band">contact@kotnalune.band</a>
     </p>
 
     <p>
@@ -372,6 +368,7 @@
      FOOTER
      ========================= -->
 
+</main>
 <footer>
 
     &copy; 2023–2026 Кот На Луне.

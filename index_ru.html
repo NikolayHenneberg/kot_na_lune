@@ -8,7 +8,7 @@
     <meta property="og:title" content="Официальный сайт рок-группы «Кот На Луне»">
     <meta property="og:description"
           content="Кот На Луне — слушайте нашу музыку, приходите на концерты и оставайтесь с нами!">
-    <meta property="og:image" content="https://www.kotnalune.band/og-image.jpg">
+    <meta property="og:image" content="https://www.kotnalune.band/og-image.JPG">
     <meta property="og:url" content="https://kotnalune.band">
     <meta property="og:type" content="website">
     <title>Официальный сайт рок-группы «Кот На Луне»</title>
@@ -16,20 +16,11 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Permanent+Marker&display=swap"
           rel="stylesheet">
-    <style>
-        @media (max-width: 1150px) {
-            header { flex-wrap: wrap; gap: 14px; }
-            header nav { display: flex; flex: 1 1 100%; order: 3; flex-wrap: wrap; justify-content: center; gap: 12px 18px; }
-            header nav a { margin: 0; }
-        }
-    </style>
 </head>
-<body>
-<header>
-    <div class="logo">
-        <a href="index_ru.html"><img src="logo.svg" alt="Логотип группы Кот На Луне"></a>
-    </div>
-    <nav>
+<body class="home-page">
+<header class="site-header">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="menu-symbol" aria-hidden="true"></span>Меню</button>
+    <nav id="main-nav" aria-label="Главное меню">
         <a href="#about" aria-label="О группе">О группе</a>
         <a href="#concert" aria-label="Концерты">Концерты</a>
         <a href="songtexte.html">Тексты песен</a>
@@ -38,35 +29,61 @@
         <a href="#contact" aria-label="Контакты">Контакты</a>
     </nav>
     <div class="language-switch">
-        <a href="index_ru.html" class="lang active">RU</a>
+        <a href="index_ru.html" class="lang active" aria-current="page">RU</a>
         <span class="divider">/</span>
         <a href="index.html" class="lang">DE</a>
     </div>
 
 </header>
+<script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const siteHeader = document.querySelector('.site-header');
+    siteHeader.classList.add('menu-ready');
+    menuButton.addEventListener('click', () => {
+        const open = menuButton.getAttribute('aria-expanded') !== 'true';
+        menuButton.setAttribute('aria-expanded', String(open));
+        siteHeader.classList.toggle('menu-open', open);
+    });
+    document.querySelectorAll('#main-nav a').forEach(link => link.addEventListener('click', () => {
+        menuButton.setAttribute('aria-expanded', 'false');
+        siteHeader.classList.remove('menu-open');
+    }));
+</script>
 
-<div class="hero">
-    <div>
-        <div class="hero-text">
-            <h1>Добро пожаловать на официальный сайт группы «Кот На Луне»!</h1>
-            <p>Рок, который задевает душу</p>
+<main id="main-content">
+<section class="hero" aria-label="Kot Na Lune">
+    <div class="hero-shell">
+        <div class="hero-topline"><span class="hero-location"><span class="signal-dot" aria-hidden="true"></span>ДРЕЗДЕН · РОК-ГРУППА</span><span class="hero-edition">KOTNALUNE.BAND</span></div>
+        <div class="hero-brand">
+            <h1 class="sr-only">Кот На Луне · Kot Na Lune</h1>
+            <img src="hero-logo.png" alt="" width="2048" height="1250" fetchpriority="high">
         </div>
-        <div class="social-icons">
+        <div class="hero-bottom">
+            <p class="hero-tagline">Рок, который<br>задевает душу.</p>
+            <div class="hero-actions">
+                <a class="hero-button hero-button-primary" href="#concert">Концерты<span aria-hidden="true">↗</span></a>
+                <a class="hero-button" href="#music">Слушать музыку<span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+        <div class="hero-footerline">
+            <div class="social-icons">
             <a href="https://www.instagram.com/kater_auf_dem_mond" target="_blank" rel="noopener noreferrer">
-                <img src="instagram.svg" alt="Instagram" width="50" height="50">
+                <img src="instagram.svg" alt="" width="50" height="50">
                 <span>Instagram</span>
             </a>
             <a href="https://www.youtube.com/@Кот_На_Луне" target="_blank" rel="noopener noreferrer">
-                <img src="youtube.svg" alt="YouTube" width="50" height="50">
+                <img src="youtube.svg" alt="" width="50" height="50">
                 <span>YouTube</span>
             </a>
             <a href="https://www.tiktok.com/@katze_auf_dem_mond" target="_blank" rel="noopener noreferrer">
-                <img src="tiktok.svg" alt="TikTok" width="50" height="50">
+                <img src="tiktok.svg" alt="" width="50" height="50">
                 <span>TikTok</span>
             </a>
         </div>
+            <a class="hero-lyrics" href="songtexte.html">Тексты песен<span aria-hidden="true">↗</span></a>
+        </div>
     </div>
-</div>
+</section>
 
 <div id="about" class="section">
     <h2>О группе</h2>
@@ -99,7 +116,7 @@
            class="concert-poster-link">
             <img src="concert-2026-11-26.jpg"
                  alt="Кот На Луне — Paradies Nacht, 26 ноября 2026 в Дрездене"
-                 class="concert-poster">
+                 class="concert-poster" loading="lazy" decoding="async">
         </a>
 
         <div class="concert-info">
@@ -160,10 +177,11 @@
 
 <div id="contact" class="section">
     <h2>Контакты</h2>
-    <p>Email: contact@kotnalune.band</p>
+    <p>Email: <a href="mailto:contact@kotnalune.band">contact@kotnalune.band</a></p>
     <p>Следите за нами в соцсетях!</p>
 </div>
 
+</main>
 <footer>
     &copy; 2023–2026 Кот На Луне. Все права защищены.
     <a href="privacy.html" class="privacy-policy-link">Политика конфиденциальности</a>
