@@ -123,3 +123,58 @@ footer { text-align: center; background: #101010; border-top: 1px solid var(--ro
     .history-list li strong { display: block; margin-bottom: 4px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+
+/* Music: one album, three equally accessible streaming platforms. */
+.music-item .album-kicker {
+    color: var(--rock-accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+}
+.album-heading h3 {
+    margin: 0;
+    font-size: clamp(27px, 4vw, 46px);
+    line-height: 1.15;
+    letter-spacing: -.035em;
+    color: var(--rock-text);
+}
+.music-item .platform-label {
+    margin: 30px 0 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--rock-muted);
+}
+.platform-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.platform-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    min-height: 62px;
+    padding: 14px 16px;
+    border: 1px solid var(--rock-border);
+    background: var(--rock-panel);
+    color: var(--rock-text);
+    transition: border-color .18s, background .18s, color .18s;
+}
+.platform-link:hover {
+    background: var(--rock-panel-hover);
+    border-color: var(--rock-accent);
+    color: var(--rock-text);
+}
+.platform-icon { width: 24px; height: 24px; flex: 0 0 24px; color: var(--rock-text); }
+.platform-name { font-size: 14px; font-weight: 700; min-width: 0; }
+.platform-arrow { width: 18px; height: 18px; flex: 0 0 18px; margin-left: auto; color: var(--rock-accent); }
+@media (max-width: 700px) {
+    .platform-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+    .platform-link { min-height: 54px; }
+    .music-item .platform-label { margin-top: 22px; }
+}
+@media (prefers-reduced-motion: reduce) { .platform-link { transition: none; } }
