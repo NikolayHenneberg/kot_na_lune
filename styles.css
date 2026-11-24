@@ -247,3 +247,80 @@ footer { text-align: center; background: #101010; border-top: 1px solid var(--ro
     .booking-social { flex-direction: column; align-items: flex-start; gap: 8px; }
     .booking-cta { width: 100%; }
 }
+
+
+/* HERO / Stage light — CSS-only motion, scoped to the home pages.
+   The logo stays still. Ambient light and pulse settle in under five seconds. */
+@media (prefers-reduced-motion: no-preference) {
+    .home-page .hero {
+        isolation: isolate;
+        overflow: hidden;
+    }
+    .home-page .hero::before {
+        content: "";
+        position: absolute;
+        inset: -12%;
+        pointer-events: none;
+        z-index: -1;
+        background: radial-gradient(ellipse at 48% 38%, rgba(240, 84, 84, .19) 0%, rgba(143, 21, 21, .09) 26%, transparent 58%);
+        opacity: .30;
+        animation: knl-stage-light 4.8s ease-in-out both;
+    }
+    /* A precisely clipped copy of the existing artwork lights up only its pulse. */
+    .home-page .hero-brand::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        left: 50%;
+        top: 50%;
+        width: 137%;
+        aspect-ratio: 2048 / 1250;
+        transform: translate(-50%, -50%);
+        background: url("hero-logo.webp") center / 100% 100% no-repeat;
+        clip-path: inset(35% 57% 44% 34%);
+        filter: brightness(1.65) sepia(1) saturate(4) hue-rotate(320deg);
+        mix-blend-mode: screen;
+        opacity: 0;
+        animation: knl-logo-pulse 4.8s ease-in-out both;
+    }
+    .home-page .hero .signal-dot {
+        animation: knl-signal-pulse 4.8s ease-in-out both;
+    }
+    .home-page .hero-topline { animation: knl-hero-enter .65s ease-out both; }
+    .home-page .hero-bottom { animation: knl-hero-enter .8s .12s ease-out both; }
+    .home-page .hero-footerline { animation: knl-hero-enter .8s .24s ease-out both; }
+    .home-page .hero-button span, .home-page .hero-lyrics span {
+        display: inline-block;
+        transition: transform .22s ease;
+    }
+    .home-page .hero-button:focus-visible span, .home-page .hero-lyrics:focus-visible span {
+        transform: translate(2px, -2px);
+    }
+    @media (hover: hover) and (pointer: fine) {
+        .home-page .hero-button:hover span, .home-page .hero-lyrics:hover span {
+            transform: translate(2px, -2px);
+        }
+    }
+    @media (max-width: 560px) {
+        .home-page .hero-brand::after { width: 138%; }
+    }
+    @keyframes knl-stage-light {
+        0% { opacity: .18; transform: translate(-3%, -2%) scale(.96); }
+        42% { opacity: .83; transform: translate(3%, 2%) scale(1.04); }
+        70% { opacity: .58; transform: translate(1%, 0) scale(1.01); }
+        100% { opacity: .30; transform: none; }
+    }
+    @keyframes knl-logo-pulse {
+        0%, 17%, 46%, 60%, 100% { opacity: 0; }
+        28%, 72% { opacity: .70; }
+        35%, 79% { opacity: .36; }
+    }
+    @keyframes knl-signal-pulse {
+        0%, 17%, 46%, 60%, 100% { transform: scale(1); opacity: 1; }
+        28%, 72% { transform: scale(1.32); opacity: .82; }
+    }
+    @keyframes knl-hero-enter {
+        from { opacity: .72; transform: translateY(8px); }
+        to { opacity: 1; transform: none; }
+    }
+}
