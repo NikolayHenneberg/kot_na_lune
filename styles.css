@@ -327,14 +327,14 @@ footer { text-align: center; background: #101010; border-top: 1px solid var(--ro
 
 /* Display typography from STAGE 02 — current layout stays unchanged. */
 .home-page .hero-tagline {
-    font-size: clamp(32px, 4.6vw, 66px);
+    font-size: clamp(25.6px, 3.68vw, 52.8px);
     font-weight: 800;
     line-height: .99;
     letter-spacing: -.065em;
     color: var(--rock-muted);
 }
 .home-page .hero-tagline .display-accent { color: var(--rock-accent); }
-.home-page .section h2 { font-weight: 800; letter-spacing: -.055em; }
+.home-page .section h2 { font-size: clamp(25.5px, 3.485vw, 45.9px); font-weight: 800; letter-spacing: -.055em; }
 .concert-info .concert-date {
     margin: 9px 0 0;
     font-size: clamp(64px, 8vw, 112px);
@@ -357,7 +357,7 @@ footer { text-align: center; background: #101010; border-top: 1px solid var(--ro
     color: var(--rock-accent);
 }
 @media (max-width: 560px) {
-    .home-page .hero-tagline { font-size: clamp(28px, 8.1vw, 45px); }
+    .home-page .hero-tagline { font-size: clamp(22.4px, 6.48vw, 36px); }
     .concert-info .concert-date { font-size: clamp(56px, 15vw, 84px); }
 }
 
@@ -377,17 +377,18 @@ footer { text-align: center; background: #101010; border-top: 1px solid var(--ro
 }
 .home-page #about > p { color: var(--rock-muted); }
 .home-page .members {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(16px, 1.35vw, 19px);
-    font-weight: 500;
-    letter-spacing: -.025em;
+    font-weight: 400;
+    letter-spacing: normal;
 }
 .home-page .members strong {
-    color: var(--rock-text);
-    font-weight: 800;
-    letter-spacing: -.035em;
+    color: #d6d6d6;
+    font-weight: 700;
+    letter-spacing: normal;
 }
 .home-page .members em {
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
     color: var(--rock-muted);
 }
