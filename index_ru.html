@@ -14,8 +14,6 @@
     <title>Официальный сайт рок-группы «Кот На Луне»</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Permanent+Marker&display=swap"
-          rel="stylesheet">
 </head>
 <body class="home-page">
 <header class="site-header">
@@ -159,16 +157,17 @@
                     <svg class="platform-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg>
                 </a>
             </div>
-            <iframe
-                    src="https://open.spotify.com/embed/album/7p7KgotPfnINwCBviPJStS?utm_source=generator"
-                    width="100%"
-                    height="352"
-                    frameborder="0"
-                    allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    title="Spotify-плеер альбома The Первый">
-            </iframe>
+            <div class="spotify-consent" data-spotify-player data-title="Spotify-плеер альбома The Первый">
+                <div class="spotify-notice">
+                    <h4>Слушать прямо на сайте</h4>
+                    <p>При включении плеера устанавливается соединение со Spotify. Spotify получает IP-адрес и может использовать файлы cookie и другие технологии для обработки данных, в том числе за пределами ЕС. Загрузка добровольна; без неё доступны ссылки выше.</p>
+                    <p><a href="privacy.html#spotify">Политика конфиденциальности</a></p>
+                </div>
+                <button type="button" class="hero-button hero-button-primary spotify-enable">Разрешить и загрузить Spotify</button>
+                <div class="spotify-frame" hidden></div>
+                <button type="button" class="hero-button spotify-disable" hidden>Отключить Spotify и отозвать согласие</button>
+            </div>
+            <script src="spotify-consent.js" defer></script>
         </div>
     </div>
 </div>
@@ -197,6 +196,7 @@
 
 <div id="contact" class="section">
     <h2>Контакты</h2>
+    <p>Ответственный за сайт: Nikolay Henneberg · Дрезден, Германия</p>
     <p>Email: <a href="mailto:contact@kotnalune.band">contact@kotnalune.band</a></p>
     <p>Следите за нами в соцсетях!</p>
 </div>
@@ -205,7 +205,6 @@
 <footer>
     &copy; 2023–2026 Кот На Луне. Все права защищены.
     <a href="privacy.html" class="privacy-policy-link">Политика конфиденциальности</a>
-
 </footer>
 </body>
 </html>

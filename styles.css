@@ -17,7 +17,7 @@
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--rock-bg); color: var(--rock-text); font-family: Montserrat, system-ui, Arial, sans-serif; line-height: 1.6; }
+body { margin: 0; background: var(--rock-bg); color: var(--rock-text); font-family: system-ui, Arial, sans-serif; line-height: 1.6; }
 a { color: var(--rock-accent); text-decoration: none; }
 a:hover { color: var(--rock-accent-hover); }
 a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--rock-accent); outline-offset: 4px; }
@@ -178,3 +178,20 @@ footer { text-align: center; background: #101010; border-top: 1px solid var(--ro
     .music-item .platform-label { margin-top: 22px; }
 }
 @media (prefers-reduced-motion: reduce) { .platform-link { transition: none; } }
+
+/* Local-only interface: external player is opt-in. */
+.spotify-consent { padding: clamp(18px, 3vw, 32px); border: 1px solid var(--rock-border); background: var(--rock-panel); }
+.spotify-consent h4 { margin: 0 0 10px; font-size: 1.15rem; }
+.spotify-consent p { color: var(--rock-muted); font-size: .95rem; max-width: 76ch; }
+.spotify-consent button { cursor: pointer; white-space: normal; text-align: left; max-width: 100%; }
+.spotify-frame:not([hidden]) { margin-top: 18px; }
+.spotify-disable:not([hidden]) { margin-top: 16px; }
+.spotify-consent [hidden] { display: none !important; }
+.legal-page .section { max-width: 1000px; }
+.legal-page .section h3 { margin-top: 2rem; color: var(--rock-text); }
+.legal-page .section p, .legal-page .section li { color: var(--rock-muted); font-size: 1rem; }
+.legal-page .section a { text-decoration: underline; text-underline-offset: 3px; }
+
+
+.spotify-consent button:not(.hero-button-primary) { background: var(--rock-panel); }
+.spotify-frame iframe { display: block; width: 100%; border: 0; border-radius: 12px; }
