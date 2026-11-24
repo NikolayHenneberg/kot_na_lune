@@ -331,7 +331,7 @@ footer { text-align: center; background: #101010; border-top: 1px solid var(--ro
     font-weight: 800;
     line-height: .99;
     letter-spacing: -.065em;
-    color: #f2eeee;
+    color: var(--rock-muted);
 }
 .home-page .hero-tagline .display-accent { color: var(--rock-accent); }
 .home-page .section h2 { font-weight: 800; letter-spacing: -.055em; }
@@ -341,7 +341,7 @@ footer { text-align: center; background: #101010; border-top: 1px solid var(--ro
     font-weight: 800;
     line-height: .88;
     letter-spacing: -.09em;
-    color: #fff;
+    color: var(--rock-muted);
     font-variant-numeric: lining-nums;
 }
 .concert-date time { display: inline-block; max-width: 100%; }
@@ -360,3 +360,57 @@ footer { text-align: center; background: #101010; border-top: 1px solid var(--ro
     .home-page .hero-tagline { font-size: clamp(28px, 8.1vw, 45px); }
     .concert-info .concert-date { font-size: clamp(56px, 15vw, 84px); }
 }
+
+
+/* Editorial typography — keep the current layout and display headlines.
+   One system font family, with distinct weights for reading and emphasis. */
+.home-page {
+    font-weight: 500;
+    letter-spacing: -.012em;
+    --rock-muted: #c4c4c4;
+}
+.home-page .section > p {
+    font-size: clamp(17px, 1.5vw, 21px);
+    font-weight: 500;
+    line-height: 1.58;
+    letter-spacing: -.018em;
+}
+.home-page #about > p { color: var(--rock-muted); }
+.home-page .members {
+    font-size: clamp(16px, 1.35vw, 19px);
+    font-weight: 500;
+    letter-spacing: -.025em;
+}
+.home-page .members strong {
+    color: var(--rock-text);
+    font-weight: 800;
+    letter-spacing: -.035em;
+}
+.home-page .members em {
+    font-weight: 500;
+    font-style: normal;
+    color: var(--rock-muted);
+}
+.home-page .concert-info p:nth-child(2),
+.home-page .album-heading h3,
+.home-page .booking-intro h3 {
+    color: var(--rock-text);
+    font-weight: 800;
+    letter-spacing: -.045em;
+}
+.home-page .concert-info p:not(.concert-date):not(:nth-child(2)) {
+    font-weight: 500;
+    letter-spacing: -.015em;
+}
+.home-page .booking-description { font-size: 17px; line-height: 1.6; }
+.home-page .booking-email { font-weight: 800; }
+.home-page .history-list li { font-size: clamp(15px, 1.25vw, 17px); line-height: 1.55; }
+.home-page .history-list li strong { font-weight: 800; letter-spacing: -.03em; }
+.home-page .spotify-consent h4 { font-weight: 800; letter-spacing: -.025em; }
+.home-page .spotify-consent p { font-size: 16px; line-height: 1.55; }
+.home-page .site-header nav a,
+.home-page .menu-toggle,
+.home-page .platform-label,
+.home-page .booking-label,
+.home-page .booking-social-links a { font-weight: 700; }
+.home-page .social-icons a { font-weight: 600; }
