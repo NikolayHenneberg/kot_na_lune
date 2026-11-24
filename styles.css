@@ -409,9 +409,21 @@ footer { text-align: center; background: #101010; border-top: 1px solid var(--ro
 .home-page .history-list li strong { font-weight: 800; letter-spacing: -.03em; }
 .home-page .spotify-consent h4 { font-weight: 800; letter-spacing: -.025em; }
 .home-page .spotify-consent p { font-size: 16px; line-height: 1.55; }
-.home-page .site-header nav a,
-.home-page .menu-toggle,
 .home-page .platform-label,
 .home-page .booking-label,
 .home-page .booking-social-links a { font-weight: 700; }
 .home-page .social-icons a { font-weight: 600; }
+
+/* Navigation — clear reading type, separate from display headlines. */
+.home-page .site-header nav a,
+.home-page .site-header .menu-toggle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .3px;
+    color: #c4c4c4;
+}
+.home-page .site-header nav a:hover,
+.home-page .site-header .menu-toggle:hover {
+    color: var(--rock-accent);
+}
